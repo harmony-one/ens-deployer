@@ -304,14 +304,6 @@ contract BaseRegistrarImplementation is ERC721Enumerable, IBaseRegistrar, Ownabl
         return super.ownerOf(tokenId);
     }
 
-    function _baseURI() internal view override returns (string memory) {
-        return _baseURI;
-    }
-
-    function setBaseURI(string memory baseURI) public onlyOwner {
-        _baseURI = baseURI;
-    }
-
     // Authorises a controller, who can register and renew domains.
     function addController(address controller) external override onlyOwner {
         controllers[controller] = true;
